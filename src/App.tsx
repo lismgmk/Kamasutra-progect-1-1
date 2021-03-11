@@ -2,6 +2,10 @@ import React from 'react';
 import './App.css';
 import Accordion from './Component/Accordion/Accordion'
 import {Rating} from "./Component/rating";
+import OnOf from "./Component/OnOf/OnOf";
+import UncontrolledAccordion from "./Component/UncontrolledAccordion/UncontrolledAccordion";
+
+
 
 function App() {
   return (
@@ -10,37 +14,30 @@ function App() {
 
 
 
-        <AppTitle title = {'this App component'}/>
+
 
         Article 1
-        <Rating value = {3}/>
+        <Rating />
 
         <Accordion titleValue = {'Меню'} collapsed = {true}/>
-        <Accordion titleValue = {'This Accordion'} collapsed = {true}/>
+        <Accordion titleValue = {'This UncontrolledAccordion'} collapsed = {false}/>
+        <UncontrolledAccordion  titleValue = {'Collapsed'}/>
 
         Article 2
-        <Rating value = {0}/>
-        <Rating value = {1}/>
-        <Rating value = {2}/>
-        <Rating value = {4}/>
-        <Rating value = {5}/>
+
+
+        Article 3
+        <OnOf />
+        <OnOf />
+        <OnOf />
+
     </div>
   )
 }
 
-type ApptitlePropsTitle = {
-    title: string
-}
 
-let AppTitle = (props: ApptitlePropsTitle) => {
-    return(
-        <div>
-            <h1>{props.title}</h1>
-        </div>
-    )
-}
 
-;
+
 
 
 

@@ -3,26 +3,41 @@ import '../../App.css';
 
 type AccordionPropsTitleValue = {
     titleValue: string,
-    collapsed: boolean
+    collapsed?: boolean
 }
 
-let Accordion = (props: AccordionPropsTitleValue) => {console.log('render Accordion');
+let Accordion1 = (props: AccordionPropsTitleValue) => {console.log('render UncontrolledAccordion');
     if(props.collapsed === true){
         return(
             <div>
                 <AccordionTitle title = {props.titleValue} />
-                <AccordionBody />
+
             </div>
         )
     }  else {
         return(
             <div>
                 <AccordionTitle title = {props.titleValue} />
+                <AccordionBody />
             </div>
         )
     }
 
 };
+
+let Accordion = (props: AccordionPropsTitleValue) => {console.log('render UncontrolledAccordion');
+
+        return(
+            <div>
+                <AccordionTitle title = {props.titleValue} />
+                { !props.collapsed && <AccordionBody/> }
+            </div>
+        )
+
+
+};
+
+
 
 type AccordionTitlePropsTitle = {
     title: string

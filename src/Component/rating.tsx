@@ -1,87 +1,32 @@
-import React from "react";
-import {Simulate} from "react-dom/test-utils";
+import React, {useState} from "react";
+import {Star} from "./Star";
 
-type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
-}
 
-export let Rating = (props: RatingPropsType) => {
+
+export let Rating = () => {
     console.log('render rating');
 
-    if(props.value === 1){
-        return (
-            <div>
-                <Star selected = {true}/>
-                <Star selected = {false}/>
-                <Star selected = {false}/>
-                <Star selected = {false}/>
-                <Star selected = {false}/>
-            </div>
-        )
-    }; if(props.value === 2){
-        return (
-            <div>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {false}/>
-                <Star selected = {false}/>
-                <Star selected = {false}/>
-            </div>
-        )
-    }; if(props.value === 3){
-        return (
-            <div>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {false}/>
-                <Star selected = {false}/>
-            </div>
-        )
-    }; if(props.value === 4){
-        return (
-            <div>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {false}/>
-            </div>
-        )
-    }; if(props.value === 5){
-        return (
-            <div>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {true}/>
+    let [values1, setValue1] = useState(false);
+    let [values2, setValue2] = useState(false);
+    let [values3, setValue3] = useState(false);
+    let [values4, setValue4] = useState(false);
+    let [values5, setValue5] = useState(false);
+    let [values6, setValue6] = useState(false);
 
-            </div>
-        )
-    };
+
     return (
         <div>
-            <Star selected = {false}/>
-            <Star selected = {false}/>
-            <Star selected = {false}/>
-            <Star selected = {false}/>
-            <Star selected = {false}/>
+            <Star selected = {values1}/><button onClick={ () => {setValue1(true)} }>1</button>;
+            <Star selected = {values2}/><button onClick={ ()=> {setValue2(true)} }>2</button>;
+            <Star selected = {values3}/><button onClick={ ()=> {setValue3(true)} }>3</button>;
+            <Star selected = {values4}/><button onClick={ ()=> {setValue4(true)} }>4</button>;
+            <Star selected = {values5}/><button onClick={ ()=> {setValue5(true)} }>5</button>;
+            <Star selected = {values6}/><button onClick={ ()=> {setValue6(true)} }>6</button>
+
         </div>
     )
 
 
+
 };
 
-type RatingPropsStar = {
-    selected: boolean
-}
-
-function Star(props: RatingPropsStar) {
-    if(props.selected === true){
-        return <span> <b>star</b> </span>
-    } else{
-        return <span> star </span>
-    }
-
-}
