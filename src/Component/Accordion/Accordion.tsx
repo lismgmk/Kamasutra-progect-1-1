@@ -2,34 +2,39 @@ import React from 'react';
 import '../../App.css';
 
 type AccordionPropsTitleValue = {
-    titleValue: string,
-    collapsed?: boolean
+    titleValue: string
+    collapsed: boolean
+    setCollapsed: ()=> void
 }
 
-let Accordion1 = (props: AccordionPropsTitleValue) => {console.log('render UncontrolledAccordion');
-    if(props.collapsed === true){
+// let Accordion1 = (props: AccordionPropsTitleValue) => {console.log('render UncontrolledAccordion');
+//     if(props.collapsed === true){
+//         return(
+//             <div>
+//                 <AccordionTitle title = {props.titleValue} />
+//
+//             </div>
+//         )
+//     }  else {
+//         return(
+//             <div>
+//                 <AccordionTitle title = {props.titleValue} />
+//                 <AccordionBody />
+//             </div>
+//         )
+//     }
+//
+// };
+
+let Accordion = (props: AccordionPropsTitleValue) => {
+
         return(
             <div>
-                <AccordionTitle title = {props.titleValue} />
-
-            </div>
-        )
-    }  else {
-        return(
-            <div>
-                <AccordionTitle title = {props.titleValue} />
-                <AccordionBody />
-            </div>
-        )
-    }
-
-};
-
-let Accordion = (props: AccordionPropsTitleValue) => {console.log('render UncontrolledAccordion');
-
-        return(
-            <div>
-                <AccordionTitle title = {props.titleValue} />
+                <AccordionTitle
+                    setCollapsed = {props.setCollapsed}
+                    title = {props.titleValue}
+                    collapsed = {props.collapsed}
+                />
                 { !props.collapsed && <AccordionBody/> }
             </div>
         )
@@ -41,6 +46,8 @@ let Accordion = (props: AccordionPropsTitleValue) => {console.log('render Uncont
 
 type AccordionTitlePropsTitle = {
     title: string
+    collapsed: boolean
+    setCollapsed: ()=> void
 }
 
 let AccordionTitle = (props: AccordionTitlePropsTitle)=>{
@@ -48,19 +55,18 @@ let AccordionTitle = (props: AccordionTitlePropsTitle)=>{
 
     return(
         <div>
-            <h3>{props.title}</h3>
+            <h3 onClick={props.setCollapsed} >{props.title}</h3>
         </div>
     )
 };
 
 let AccordionBody = ()=> {
-    console.log('render AccordionBody');
     return(
         <div>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                <li>Uladzimir</li>
+                <li>Lis</li>
+                <li>React</li>
             </ul>
         </div>
     )

@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import s from './OnOf.module.css'
 
 type onOfType = {
-    // onOf: boolean
+    onOfs: boolean
+    setOnOfs: (value: boolean)=> void
 }
 
 
@@ -11,7 +12,7 @@ type onOfType = {
 
 let OnOf = (props : onOfType) => {
 
-    let [onOf, setOnOf ]= useState(false)
+
 
     let ractanularOn = {
         width: '50px',
@@ -21,7 +22,7 @@ let OnOf = (props : onOfType) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: onOf ? 'green' : 'white'
+        backgroundColor: props.onOfs ? 'green' : 'white'
     }
 
     let ractanularOff = {
@@ -32,7 +33,7 @@ let OnOf = (props : onOfType) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: onOf ? 'white' : 'red'
+        backgroundColor: props.onOfs ? 'white' : 'red'
     }
 
     let circle = {
@@ -41,14 +42,14 @@ let OnOf = (props : onOfType) => {
         borderRadius: '50%',
         border: '1px solid #000',
         margin: '20px',
-        backgroundColor: onOf ? 'green' : 'red'
+        backgroundColor: props.onOfs ? 'green' : 'red'
     }
 
     return(
         <div className={s.container}>
 
-            <div style={ractanularOn} onClick={() => { setOnOf(true) }}>On</div>
-            <div style={ractanularOff} onClick={() => { setOnOf(false) }} >Off</div>
+            <div style={ractanularOn} onClick={()=>props.setOnOfs(true) }>On</div>
+            <div style={ractanularOff} onClick={ () =>props.setOnOfs(false) } >Off</div>
             <div style={circle} ></div>
         </div>
     )

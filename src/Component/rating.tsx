@@ -1,27 +1,27 @@
 import React, {useState} from "react";
 import {Star} from "./Star";
 
+type ratingType = {
+    setValue: (value: 1|2|3|4|5|6)=> void
+    value: 1|2|3|4|5|6
+}
 
-
-export let Rating = () => {
+export let Rating = (props: ratingType) => {
     console.log('render rating');
 
-    let [values1, setValue1] = useState(false);
-    let [values2, setValue2] = useState(false);
-    let [values3, setValue3] = useState(false);
-    let [values4, setValue4] = useState(false);
-    let [values5, setValue5] = useState(false);
-    let [values6, setValue6] = useState(false);
+
+
 
 
     return (
         <div>
-            <Star selected = {values1}/><button onClick={ () => {setValue1(true)} }>1</button>;
-            <Star selected = {values2}/><button onClick={ ()=> {setValue2(true)} }>2</button>;
-            <Star selected = {values3}/><button onClick={ ()=> {setValue3(true)} }>3</button>;
-            <Star selected = {values4}/><button onClick={ ()=> {setValue4(true)} }>4</button>;
-            <Star selected = {values5}/><button onClick={ ()=> {setValue5(true)} }>5</button>;
-            <Star selected = {values6}/><button onClick={ ()=> {setValue6(true)} }>6</button>
+
+            <Star selected = {props.value > 0} setValue={()=>props.setValue(1)} />;
+            <Star selected = {props.value > 1} setValue={()=>props.setValue(2)}/>;
+            <Star selected = {props.value > 2} setValue={()=>props.setValue(3)}/>;
+            <Star selected = {props.value > 3} setValue={()=>props.setValue(4)}/>;
+            <Star selected = {props.value > 4} setValue={()=>props.setValue(5)}/>;
+            <Star selected = {props.value > 5} setValue={()=>props.setValue(6)}/>
 
         </div>
     )

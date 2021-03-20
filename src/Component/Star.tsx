@@ -2,13 +2,18 @@ import React from "react";
 
 type RatingPropsStar = {
     selected: boolean
+    setValue: (value: void)=> void
+
 }
 
 export function Star(props: RatingPropsStar) {
-    if (props.selected === true) {
-        return <span> <b>star</b> </span>
-    } else {
-        return <span> star </span>
-    }
 
+
+
+    return(
+        <span onClick={()=>props.setValue()}>
+            {props.selected ? <b>star</b> : 'star'}
+        </span>
+
+    )
 }
