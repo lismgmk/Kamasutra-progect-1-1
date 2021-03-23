@@ -1,9 +1,12 @@
 import React, {useState} from "react";
 import {Star} from "./Star";
 
+export type ratingValueType =  1|2|3|4|5|6
+
+
 type ratingType = {
-    setValue: (value: 1|2|3|4|5|6)=> void
-    value: 1|2|3|4|5|6
+    setValue: (value: ratingValueType)=> void
+    value: ratingValueType
 }
 
 export let Rating = (props: ratingType) => {
