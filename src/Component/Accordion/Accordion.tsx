@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../App.css';
 
-type AccordionPropsTitleValue = {
+export type AccordionPropsTitleValue = {
     titleValue: string
     collapsed: boolean
     setCollapsed: ()=> void
@@ -26,7 +26,7 @@ type AccordionPropsTitleValue = {
 //
 // };
 
-let Accordion = (props: AccordionPropsTitleValue) => {
+export let Accordion = (props: AccordionPropsTitleValue) => {
 
         return(
             <div>
