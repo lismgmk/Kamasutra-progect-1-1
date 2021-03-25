@@ -1,32 +1,28 @@
 import React from 'react';
 import '../../App.css';
 
-type AccordionPropsTitleValue = {
+export type AccordionPropsTitleValue = {
+    /**
+     * Element title
+     */
     titleValue: string
+    /**
+     * Element that show status for accordion
+     */
     collapsed: boolean
+    /**
+     * Elements that changed accordion
+     */
     setCollapsed: ()=> void
+    /**
+     * Color text accordion
+     */
+    color?: string
 }
 
-// let Accordion1 = (props: AccordionPropsTitleValue) => {console.log('render UncontrolledAccordion');
-//     if(props.collapsed === true){
-//         return(
-//             <div>
-//                 <AccordionTitle title = {props.titleValue} />
-//
-//             </div>
-//         )
-//     }  else {
-//         return(
-//             <div>
-//                 <AccordionTitle title = {props.titleValue} />
-//                 <AccordionBody />
-//             </div>
-//         )
-//     }
-//
-// };
 
-let Accordion = (props: AccordionPropsTitleValue) => {
+
+export let Accordion = (props: AccordionPropsTitleValue) => {
 
         return(
             <div>
@@ -34,6 +30,7 @@ let Accordion = (props: AccordionPropsTitleValue) => {
                     setCollapsed = {props.setCollapsed}
                     title = {props.titleValue}
                     collapsed = {props.collapsed}
+                    color = {props.color}
                 />
                 { !props.collapsed && <AccordionBody/> }
             </div>
@@ -48,14 +45,17 @@ type AccordionTitlePropsTitle = {
     title: string
     collapsed: boolean
     setCollapsed: ()=> void
+    color?: string
 }
 
 let AccordionTitle = (props: AccordionTitlePropsTitle)=>{
 
 
-    return(
+    return (
         <div>
-            <h3 onClick={props.setCollapsed} >{props.title}</h3>
+            <h3
+                style={{color: props.color ? props.color : 'red'}}
+                onClick={props.setCollapsed}>{props.title}</h3>
         </div>
     )
 };
