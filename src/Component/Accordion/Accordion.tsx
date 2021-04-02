@@ -18,6 +18,13 @@ export type AccordionPropsTitleValue = {
      * Color text accordion
      */
     color?: string
+    items: ItemType[]
+    onClick: (value : any) => void
+}
+
+type ItemType = {
+    title: string
+    value: any
 }
 
 
@@ -32,7 +39,7 @@ export let Accordion = (props: AccordionPropsTitleValue) => {
                     collapsed = {props.collapsed}
                     color = {props.color}
                 />
-                { !props.collapsed && <AccordionBody/> }
+                { !props.collapsed && <AccordionBody items = {props.items} onClick = {props.onClick}/> }
             </div>
         )
 
@@ -60,13 +67,19 @@ let AccordionTitle = (props: AccordionTitlePropsTitle)=>{
     )
 };
 
-let AccordionBody = ()=> {
+export type AccordionBodyPropsType = {
+    items: ItemType[]
+    onClick: (value : any) => void
+}
+
+let AccordionBody = (props: AccordionBodyPropsType)=> {
     return(
         <div>
             <ul>
-                <li>Uladzimir</li>
-                <li>Lis</li>
-                <li>React</li>
+                {props.items.map((i, index) => <li
+                    onClick={() => { props.onClick(i.value) }}
+                    key = {index}
+                >{i.title}</li>)}
             </ul>
         </div>
     )

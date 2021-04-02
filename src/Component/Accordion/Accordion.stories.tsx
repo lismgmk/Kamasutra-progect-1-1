@@ -20,21 +20,25 @@ export default {
 
 const Template: Story<AccordionPropsTitleValue> = (args) => <Accordion {...args}/>;
 
-const callback = () => action('This action')
+const callback = () => action('This action');
+const onClickCallBack = () => action('This action Click');
 
 
 export const AccordionEmpty = Template.bind({});
 AccordionEmpty.args = {
     setCollapsed:  callback,
     titleValue: "Empty",
-    collapsed: true
+    collapsed: true,
+    items: []
 };
 
 export const AccordionFull = Template.bind({});
 AccordionFull.args = {
     setCollapsed:  callback,
     titleValue: "Full",
-    collapsed: false
+    collapsed: false,
+    items: [{title: 'Vova', value: 1}, {title: 'Igor', value: 2}, {title: 'Sergey', value: 3}],
+    onClick: onClickCallBack
 };
 
 
@@ -42,7 +46,12 @@ export const ChangeAccordion: Story<AccordionPropsTitleValue> = (args: Accordion
     const [value, setValue ] = useState(false);
     const changedValue = ()=> setValue(!value)
 
-    return <Accordion {...args} collapsed= {value}  setCollapsed={changedValue} />
+    return <Accordion {...args}
+                      collapsed={value}
+                      setCollapsed={changedValue}
+                      items={[{title: 'Vova', value: 1}, {title: 'Igor', value: 2}, {title: 'Sergey', value: 3}]}
+                      onClick={(id) => {alert(`user ${id}`)}}
+    />
 };
 
 ChangeAccordion.args ={
