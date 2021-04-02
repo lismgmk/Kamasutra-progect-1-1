@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import s from './OnOf.module.css'
 
-type onOfType = {
+
+export type onOfType = {
     onOfs: boolean
     setOnOfs: (value: boolean)=> void
 }
@@ -10,7 +10,7 @@ type onOfType = {
 
 
 
-let OnOf = (props : onOfType) => {
+export let OnOf = (props : onOfType) => {
 
 
 
@@ -46,7 +46,7 @@ let OnOf = (props : onOfType) => {
     }
 
     return(
-        <div className={s.container}>
+        <div >
 
             <div style={ractanularOn} onClick={()=>props.setOnOfs(true) }>On</div>
             <div style={ractanularOff} onClick={ () =>props.setOnOfs(false) } >Off</div>

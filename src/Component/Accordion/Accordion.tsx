@@ -2,9 +2,12 @@ import React from 'react';
 import '../../App.css';
 
 export type AccordionPropsTitleValue = {
+<<<<<<< HEAD
     /**
      * Element title
      */
+=======
+>>>>>>> f4006325cf56db282853410439275d4cf0dc00f1
     titleValue: string
     /**
      * Element that show status for accordion
@@ -22,12 +25,33 @@ export type AccordionPropsTitleValue = {
     onClick: (value : any) => void
 }
 
+<<<<<<< HEAD
 type ItemType = {
     title: string
     value: any
 }
 
 
+=======
+// let Accordion1 = (props: AccordionPropsTitleValue) => {console.log('render UncontrolledAccordion');
+//     if(props.collapsed === true){
+//         return(
+//             <div>
+//                 <AccordionTitle title = {props.titleValue} />
+//
+//             </div>
+//         )
+//     }  else {
+//         return(
+//             <div>
+//                 <AccordionTitle title = {props.titleValue} />
+//                 <AccordionBody />
+//             </div>
+//         )
+//     }
+//
+// };
+>>>>>>> f4006325cf56db282853410439275d4cf0dc00f1
 
 export let Accordion = (props: AccordionPropsTitleValue) => {
 
