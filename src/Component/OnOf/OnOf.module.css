@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.on {
+    background-color: green;
+}
+
+.off {
+    background-color: red;
+}
