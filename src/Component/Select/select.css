@@ -1,0 +1,16 @@
+/*.posRel {*/
+/*    position: relative;*/
+/*}*/
+
+.posAbs{
+    /*position: absolute;*/
+    border: 1px solid black;
+    width: 60px;
+}
+
+div .divHover:hover {
+    color: red;
+    border: 1px solid black;
+    background-color: yellow;
+}
+

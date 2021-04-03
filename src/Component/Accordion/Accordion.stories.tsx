@@ -6,7 +6,7 @@ import { action } from "@storybook/addon-actions";
 import {Accordion, AccordionPropsTitleValue} from './Accordion';
 
 export default {
-<<<<<<< HEAD
+
     title: 'components/Accordion stories',
     component: Accordion,
     argTypes: {
@@ -52,58 +52,7 @@ export const ChangeAccordion: Story<AccordionPropsTitleValue> = (args: Accordion
                       setCollapsed={changedValue}
                       items={[{title: 'Vova', value: 1}, {title: 'Igor', value: 2}, {title: 'Sergey', value: 3}]}
                       onClick={(id) => {alert(`user ${id}`)}}
+                      titleValue={"Changed Title"}
     />
 };
 
-ChangeAccordion.args ={
-    titleValue: "Change value"
-}
-
-
-
-
-
-
-
-
-
-
-
-=======
-    title: 'Accordion stories',
-    component: Accordion
-}
-
-
-const callback = () => {
-    action('on or of active')
-};
-
-export const ModeCollapsed = () =>{
-
-    return <Accordion
-        titleValue= {'This UncontrolledAccordion'}
-        collapsed = {true}
-        setCollapsed = {callback}/>
-}
-
-export const EmptyCollapsed = () =>{
-
-    return <Accordion
-        titleValue= {'This UncontrolledAccordion'}
-        collapsed = {false}
-        setCollapsed = {callback}/>
-}
-
-
-export const ChangeCollapsed = () =>{
-
-    const [collapsed, setCollapsed ] = useState<boolean>(true);
-
-    return <Accordion
-        titleValue= {'This UncontrolledAccordion'}
-        collapsed = {collapsed}
-        setCollapsed = {() => setCollapsed(!collapsed)
-        }/>
-}
->>>>>>> f4006325cf56db282853410439275d4cf0dc00f1
