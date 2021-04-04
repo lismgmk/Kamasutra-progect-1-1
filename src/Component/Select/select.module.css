@@ -6,9 +6,10 @@
     /*position: absolute;*/
     border: 1px solid black;
     width: 60px;
+    display: inline-block;
 }
 
-div .divHover:hover {
+.divHover.selected {
     color: red;
     border: 1px solid black;
     background-color: yellow;
